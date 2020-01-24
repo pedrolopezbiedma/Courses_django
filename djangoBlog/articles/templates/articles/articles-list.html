@@ -8,12 +8,14 @@
 </head>
 <body>
     <h1>Articles list page</h1>
-    {% for article in articles %}
-    <div class='article'>
-        <a href="#">{{ article.title }}</a>
-        <p>{{ article.body }}</p>
-        <p>{{ article.date }}</p>
+    <div class='articles'>
+        {% for article in articles %}
+        <div class='article'>
+            <a href="#">{{ article.title }}</a>
+            <p>{{ article.body }}</p>
+            <p>{{ article.date }}</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </body>
 </html>
