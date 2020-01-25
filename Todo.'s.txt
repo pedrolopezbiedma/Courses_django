@@ -1,0 +1,2 @@
+- Poner el background y el CSS.
+- Crear la base template y extender la otra.
