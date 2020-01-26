@@ -5,7 +5,8 @@ from .models import Article
 
 def handle_Articles_List_Page(request):
     articles = Article.objects.all().order_by('date')
-    return render(request, 'articles/articles-list.html', { 'articles': articles })
+    return render(request, 'articles/article-list.html', { 'articles': articles })
 
 def handle_Articles_Detail_Page(request, slug):
-    return HttpResponse(slug)
+    article = Article.objects.get(slug=slug)
+    return render(request, 'articles/article-detail.html', { 'article': article })
