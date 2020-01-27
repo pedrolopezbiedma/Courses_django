@@ -12,6 +12,16 @@
     <body>
         <div class="wrapper">
             <a href="{% url 'articleList' %}"><img src="{% static 'logo.png' %}"></a>
+            <nav>
+                <ul>
+                    <li>
+                        <form action="accounts/logout/" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Log out</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
             {% block content %}
             {% endblock %}
         </div>
