@@ -26,7 +26,13 @@ def handle_Login_Page(request):
             # Log in the user
             user = form.get_user()
             login(request, user)
-            return redirect('articleList')
+
+            # Redirect the user where needed
+            # If we have where we come from, we go back there. If not, to the article list 
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect('articleList')
         else:
             return render(request, 'accounts/login.html', { 'form': form })
 
