@@ -18,7 +18,9 @@ def handle_Articles_Create_Page(request):
     if request.method == 'POST':
         form = forms.CreateArticle(request.POST, request.FILES)
         if form.is_valid:
-            # Save to db
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
             return redirect('articleList')
         else:
             return render(request, 'articles/create-article.html', {'form': form })
