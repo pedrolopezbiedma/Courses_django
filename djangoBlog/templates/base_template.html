@@ -14,12 +14,17 @@
             <a href="{% url 'articleList' %}"><img src="{% static 'logo.png' %}"></a>
             <nav>
                 <ul>
-                    <li>
-                        <form action="/accounts/logout/" method="post">
-                            {% csrf_token %}
-                            <button type="submit">Log out</button>
-                        </form>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <form action="/accounts/logout/" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Log out</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'signup' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </nav>
             {% block content %}
