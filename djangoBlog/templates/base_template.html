@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="wrapper">
-            <a href="{% url 'articleList' %}"><img src="{% static 'logo.png' %}"></a>
+            <a href="{% url 'home' %}"><img src="{% static 'logo.png' %}"></a>
             <nav>
                 <ul>
                     {% if user.is_authenticated %}
@@ -21,6 +21,7 @@
                                 <button type="submit">Log out</button>
                             </form>
                         </li>
+                        <li><a href="{% url 'createArticle' %}" class='highlight'>New Article</a></li>
                     {% else %}
                         <li><a href="{% url 'login' %}">Login</a></li>
                         <li><a href="{% url 'signup' %}">Register</a></li>
