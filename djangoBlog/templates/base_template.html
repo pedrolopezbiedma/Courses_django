@@ -10,7 +10,7 @@
         <title>Django blog</title>
     </head>
     <body>
-        <div class="wrapper">
+        <header class='wrapper'>
             <a href="{% url 'home' %}"><img src="{% static 'logo.png' %}"></a>
             <nav>
                 <ul>
@@ -28,6 +28,8 @@
                     {% endif %}
                 </ul>
             </nav>
+        </header>
+        <div class='wrapper'>
             {% block content %}
             {% endblock %}
         </div>

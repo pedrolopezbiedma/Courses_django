@@ -3,7 +3,7 @@
 {% block content %}
 <div class='create-article'>
     <h2>Create an awesome article</h2>
-    <form action="/articles/create/" method="post" enctype="multipart/form-data">
+    <form class="site-form" action="/articles/create/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Create">
